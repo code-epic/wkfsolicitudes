@@ -1,0 +1,138 @@
+<h4>DATOS {{titulo}}</h4>
+
+
+<div class="row" *ngIf="!soe">
+    <div class="col-md-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Codigo</mat-label>
+            <input [ngModelOptions]="true" [(ngModel)]="code" matInput placeholder="Codigo" value="{{code}}"
+                disabled="disabled">
+            <mat-icon matSuffix>code</mat-icon>
+
+        </mat-form-field>
+    </div>
+    <div class="col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input [ngModelOptions]="true" [(ngModel)]="name" matInput placeholder="Nombre" value="{{name}}">
+            <mat-icon matSuffix>support_agent</mat-icon>
+
+        </mat-form-field>
+    </div>
+    <div class="col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>Descripcion</mat-label>
+            <input [ngModelOptions]="true" [(ngModel)]="description" type="text" matInput
+                placeholder="Descripcion general" value="{{description}}">
+            <mat-icon matSuffix>email</mat-icon>
+
+        </mat-form-field>
+    </div>
+
+    <div class="col-md-2 text-center">
+        <div class="example-button-container text-center pull-right push-right text-pull-right">
+            
+            <button (click)="guardar()" mat-mini-fab color="primary" aria-label="Guardar informacion">
+                <mat-icon>add</mat-icon>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="openDialog()" mat-mini-fab color="warn" aria-label="Clonar" *ngIf="blDoc">
+                <mat-icon>content_copy</mat-icon>
+            </button>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="row" *ngIf="soe">
+    <div class="col-md-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Codigo</mat-label>
+            <input [ngModelOptions]="true" [(ngModel)]="code" matInput placeholder="Codigo" value="{{code}}"
+                disabled="disabled">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+        </mat-form-field>
+    </div>
+    <div class="col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input [ngModelOptions]="true" [(ngModel)]="name" matInput placeholder="Nombre" value="{{name}}">
+            <mat-icon matSuffix>support_agent</mat-icon>
+
+        </mat-form-field>
+    </div>
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Descripcion</mat-label>
+            <input [ngModelOptions]="true" [(ngModel)]="description" type="text" matInput
+                placeholder="Descripcion general" value="{{description}}">
+            <mat-icon matSuffix>email</mat-icon>
+
+        </mat-form-field>
+    </div>
+
+    <div class="col-md-6">
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Codigo</mat-label>
+                    <input [ngModelOptions]="true" [(ngModel)]="xcode" matInput placeholder="Codigo" value="{{xcode}}">
+
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Version</mat-label>
+                    <input [ngModelOptions]="true" [(ngModel)]="version" type="text" matInput
+                        placeholder="Version" value="{{version}}">
+
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Año</mat-label>
+                    <input [ngModelOptions]="true" [(ngModel)]="xyear" matInput placeholder="Año" value="{{xyear}}">
+                </mat-form-field>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="example-button-container text-center pull-right push-right text-pull-right">
+                    <button (click)="guardar()" mat-mini-fab color="primary" aria-label="Guardar informacion">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button (click)="salir()" mat-mini-fab color="warn" aria-label="Guardar informacion">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+<ng-template #wzdocumentos let-modal>
+    <app-wzdocumentos xdocument="{{xdocument}}"></app-wzdocumentos>
+</ng-template>
+
+

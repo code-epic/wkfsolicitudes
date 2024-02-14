@@ -1,0 +1,182 @@
+<ngx-ui-loader [loaderId]="'ld-xdoc'"></ngx-ui-loader>
+
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs" (selectedTabChange)="tabActive($event)"
+  [selectedIndex]="selectedIndex">
+  <mat-tab label="DOCUMENTOS">
+    <div class="example-large-box mat-elevation-z4">
+      <br><br>
+
+      <div class="row" style="margin:0px; padding: 0px;">
+        <div class="col-md-12">
+          <h4>SECCI&Oacute;N: {{titulo}}</h4>
+        </div>
+      </div>
+
+      <div class="row" style="margin:0px; padding: 0px;">
+
+        <div class="col-md-11">
+          <mat-form-field appearance="outline">
+            <mat-label>Documentos</mat-label>
+
+            <input type="text" placeholder="Seleccion de documentos" aria-label="Documentos" matInput
+              [formControl]="myDoc" [matAutocomplete]="autox">
+            <mat-autocomplete autoActiveFirstOption #autox="matAutocomplete">
+              <mat-option *ngFor="let option of filteredDoc | async" [value]="option">
+                {{option | uppercase}}
+              </mat-option>
+            </mat-autocomplete>
+
+
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-1">
+          <div class="example-button-container text-center pull-right push-right text-pull-right">
+
+            <button (click)="add()" mat-mini-fab color="primary" aria-label="Guardar informacion">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+      <div class="row" style="margin:0px; padding: 0px;">
+
+        <div class="col-md-12">
+          <mat-selection-list>
+            <mat-list *ngFor="let e of lstDocs; let i=index "
+              style="border-bottom: 1px rgba(224, 223, 223, 0.945) solid;">
+              <div class="row">
+
+                <div class="col-md-2 texto-lista">
+                  {{ e.id }}
+                </div>
+                <div class="col-md-7 texto-detalle">
+                  {{ e.description }}
+                </div>
+
+                <div class="col-md-2 texto-detalle">
+                  {{ getStatus(e.estatus) }}
+                </div>
+
+                <div class="col-md-1 text-right">
+
+                  <button mat-icon-button aria-label="Editar" (click)="editar(e)">
+                    <mat-icon class="texto-gray">edit</mat-icon>
+                  </button>
+
+                </div>
+              </div>
+            </mat-list>
+          </mat-selection-list>
+        </div>
+
+      </div>
+
+    </div>
+
+  </mat-tab>
+  <mat-tab label="REGLAS">
+
+    <div class="example-large-box mat-elevation-z4">
+      <br><br>
+      <div class="row" style="margin:0px; padding: 0px;">
+        <div class="col-md-12">
+          <h4>
+            CODIGO: {{codigo}} <br>
+            DOCUMENTO: {{documento}}<br></h4>
+        </div>
+      </div>
+      <div class="row" style="margin:0px; padding: 0px;">
+
+
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha de inicio</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-icon matSuffix  (click)="picker.open()">event</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha de fin</mat-label>
+            <input matInput [matDatepicker]="xpicker">
+            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+            <mat-datepicker #xpicker></mat-datepicker>
+            <mat-icon matSuffix  (click)="xpicker.open()">event</mat-icon>
+          </mat-form-field>
+        </div>
+
+
+      </div>
+
+      <br>
+
+      <div class="row" style="margin:0px; padding: 0px;">
+
+        <div class="col-md-10">
+          <mat-form-field appearance="outline">
+            <mat-label>Descripci&oacute;n de la condici&oacute;n</mat-label>
+            <input [ngModelOptions]="true" [(ngModel)]="description" matInput placeholder="Descripci&oacute;n de la condici&oacute;n" value="{{description}}">
+            <mat-icon matSuffix>support_agent</mat-icon>
+  
+           </mat-form-field>
+        </div>
+
+        <div class="col-md-2 text-center">
+          <div class="example-button-container text-center pull-right push-right text-pull-right">
+              <button (click)="addCondition()" mat-flat-button color="warn" style="height:40px ;" aria-label="Agregar informacion">
+                  <mat-icon>add</mat-icon> Agregar
+              </button>
+          </div>
+      </div>
+  
+      </div>
+
+      <div class="row" style="margin:0px; padding: 0px;">
+        <div class="col-md-12">
+          <mat-selection-list>
+            <mat-list *ngFor="let e of lstConditions; let i=index "
+              style="border-bottom: 1px rgba(224, 223, 223, 0.945) solid;">
+              <div class="row">
+
+                <div class="col-md-11 texto-detalle">
+                  {{ e.description }}
+                </div>
+
+
+                <div class="col-md-1 text-right">
+
+                  <button mat-icon-button aria-label="Editar" (click)="editar(e)">
+                    <mat-icon class="texto-gray">edit</mat-icon>
+                  </button>
+
+                </div>
+              </div>
+            </mat-list>
+          </mat-selection-list>
+        </div>
+
+  
+
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+<br><br>
+<div class="row">
+
+
+  <div class="col-md-12 text-right">
+    <button mat-flat-button color="primary" (click)="aceptar()">Aceptar</button>
+  </div>
+
+</div>

@@ -1,0 +1,35 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  input{
+    text-transform: uppercase;
+  }
+  select{
+    text-transform: uppercase;
+  }
+  textarea {
+    text-transform: uppercase;
+  }
+
+  .example-button-container {
+    display: flex;
+    
+    width: 30px;
+    padding-top: 10px;
+    text-align: right;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }  

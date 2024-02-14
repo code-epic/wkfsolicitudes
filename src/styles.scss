@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+html, body { height: 100%; }
+body {
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: url(../src/assets/img/theme/fondo-login.png)!important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Nunito', Franklin Gothic, 'Source Sans Pro' !important;
+}
+
+h1, h2, h3, h4, h5, h6, input, label{
+    font-family: 'Nunito', Franklin Gothic, 'Source Sans Pro' !important;
+}
+
+.heading-small{
+    color: #e21050 !important;
+  }
+  
+  
+  input, mat-form-field, .mat-form-field-appearance-outline .mat-form-field-outline{
+    color: #0067B1;
+  }
+  
+  h6, mat-label{
+    color: #004A72;
+  }
+

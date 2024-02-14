@@ -1,0 +1,169 @@
+<ngx-ui-loader [loaderId]="'loader-document'"></ngx-ui-loader>
+
+
+
+
+<mat-tab-group>
+  <mat-tab label="CONSULTAR">
+    <div class="example-large-box mat-elevation-z4">
+      <br><br>
+      <div class="row" style="margin:0px; padding: 0px;">
+
+        <div class="col-md-12">
+
+          <mat-selection-list>
+            <mat-list *ngFor="let e of lstDoc; let i=index "
+              style="border-bottom: 1px rgba(224, 223, 223, 0.945) solid;">
+              <div class="row">
+
+                <div class="col-md-1 texto-lista">
+                  {{ e.id }}
+                </div>
+                <div class="col-md-3 texto-detalle">
+                  {{ e.name | uppercase }}
+                </div>
+                <div class="col-md-4 texto-detalle">
+                  {{ e.description | uppercase }}
+                </div>
+                <div class="col-md-1 texto-detalle">
+                  {{ e.format | uppercase }}
+                </div>
+
+                <div class="col-md-1 texto-lista">
+                   {{ getName(e.status) }}
+                </div>
+
+                <div class="col-md-2 text-right">
+
+                  <button mat-icon-button aria-label="Editar" (click)="editar(e)">
+                    <mat-icon class="texto-gray">edit</mat-icon>
+                  </button>
+
+                </div>
+              </div>
+            </mat-list>
+          </mat-selection-list>
+          <br><br>
+
+        </div>
+      </div>
+    </div>
+
+  </mat-tab>
+  <mat-tab label="REGISTRAR">
+
+    <div class="example-large-box mat-elevation-z4">
+      <br><br>
+      <div class="row" style="margin:0px; padding: 0px;">
+
+        <div class="col-md-12">
+
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Codigo</mat-label>
+                <input [ngModelOptions]="true" [(ngModel)]="Doc.id" matInput 
+                placeholder="Codigo" value="{{Doc.id}}" disabled="disabled">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input [ngModelOptions]="true" [(ngModel)]="Doc.name" matInput placeholder="Nombre"
+                  value="{{Doc.name}}">
+                <mat-icon matSuffix>support_agent</mat-icon>
+
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Estatus</mat-label>
+                <mat-select placeholder="Estatus" [ngModelOptions]="true" [(ngModel)]="status" value="{{status}}">
+                  <mat-option value=1>ACTIVO</mat-option>
+                  <mat-option value=0>INACTIVO</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>public</mat-icon>
+
+              </mat-form-field>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <mat-form-field appearance="outline">
+                <mat-label>Descripcion</mat-label>
+                <input [ngModelOptions]="true" [(ngModel)]="Doc.description" type="text" matInput
+                  placeholder="Descripcion general" value="{{Doc.description}}">
+                <mat-icon matSuffix>email</mat-icon>
+
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Tipo de Documento</mat-label>
+                <mat-select placeholder="Estatus" [ngModelOptions]="true" 
+                [(ngModel)]="tipo" value="{{tipo}}">
+                  <mat-option value=4>MIXTO</mat-option>
+                  <mat-option value=1>PERSONA NATURAL</mat-option>
+                  <mat-option value=2>FIRMA PERSONAL</mat-option>
+                  <mat-option value=3>PERSONA JURIDICA</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>public</mat-icon>
+
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Formato</mat-label>
+                <mat-select placeholder="Formato" [ngModelOptions]="true" [(ngModel)]="Doc.format">
+                  <mat-option value="pdf">*.PDF</mat-option>
+                  <mat-option value="doc">*.DOC</mat-option>
+                  <mat-option value="jpg">*.JPG</mat-option>
+                  <mat-option value="xls">*.XLS</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>public</mat-icon>
+
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Tamaño máximo</mat-label>
+                <mat-select placeholder="Estatus" [ngModelOptions]="true" [(ngModel)]="limit" value="{{limit}}">
+                  <mat-option value=2>2 MB</mat-option>
+                  <mat-option value=10>10 MB</mat-option>
+                  <mat-option value=50>50 MB</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>public</mat-icon>
+
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Requerido</mat-label>
+                <mat-select placeholder="Requerido" [ngModelOptions]="true" [(ngModel)]="required" value="{{required}}">
+                  <mat-option value=1>ACTIVO</mat-option>
+                  <mat-option value=0>INACTIVO</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>public</mat-icon>
+
+              </mat-form-field>
+            </div>
+
+          </div>
+          <hr>
+
+          <div class="text-right">
+            <button mat-flat-button color="primary" (click)="guardar()">Registrar documento</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+

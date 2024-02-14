@@ -1,0 +1,41 @@
+<ngx-ui-loader [loaderId]="'loader-xdocument'"></ngx-ui-loader>
+
+<h3>Configuraci&oacute;n de Documentos</h3>
+<hr>
+
+
+<div class="row">
+
+  <div class="col-md-12">
+      <mat-selection-list>
+          <mat-list *ngFor="let e of ELEMENT_DATA; let i=index "
+              style="border-bottom: 1px rgba(224, 223, 223, 0.945) solid;">
+              <div class="row">
+
+                  <div class="col-md-4 texto-detalle">
+                      {{ e.name | uppercase }}
+                  </div>
+                  <div class="col-md-6 texto-detalle">
+                       {{ e.description }}
+                  </div>
+                  <div class="col-md-1 texto-lista">
+                    {{ e.cant }}
+                  </div>
+
+                  <div class="col-md-1 text-right" >
+
+                      <button *ngIf="e.cant!=0" mat-icon-button aria-label="Editar" (click)="clone(e)">
+                          <mat-icon class="texto-gray">content_paste</mat-icon>
+                      </button>
+
+                  </div>
+              </div>
+          </mat-list>
+      </mat-selection-list>
+  </div>
+
+</div>
+
+
+
+<br><br>

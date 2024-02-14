@@ -1,0 +1,67 @@
+<ngx-ui-loader [loaderId]="'loader-xconfig'"></ngx-ui-loader>
+<div class="row">
+  <div class="col-md-12">
+    <h4>
+      DOCUMENTO: {{documento}}<br>
+    </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <mat-form-field appearance="outline">
+      <mat-label>Sección</mat-label>
+      <select matNativeControl required>
+        <option value="0">COMERCIAL</option>
+      </select>
+    </mat-form-field>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <mat-form-field class="example-full-width">
+      <mat-label>Fecha de inicio</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-icon matSuffix (click)="picker.open()">event</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="col-md-6">
+    <mat-form-field class="example-full-width">
+      <mat-label>Fecha de fin</mat-label>
+      <input matInput [matDatepicker]="xpicker">
+      <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+      <mat-datepicker #xpicker></mat-datepicker>
+      <mat-icon matSuffix (click)="xpicker.open()">event</mat-icon>
+    </mat-form-field>
+  </div>
+</div>
+
+<br>
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <mat-selection-list>
+      <mat-list-option *ngFor="let e of lstConditions; let i=index "
+        style="border-bottom: 1px rgba(224, 223, 223, 0.945) solid;">
+        <font style="font-size: 14px; color: #969696;">{{e}}</font>
+      </mat-list-option>
+
+    </mat-selection-list>
+  </div>
+</div>
+
+
+<br><br>
+<div class="row">
+
+
+  <div class="col-md-12 text-right">
+    <button mat-flat-button color="primary" (click)="aceptar()">Aceptar</button>
+  </div>
+
+</div>
