@@ -47,7 +47,7 @@ export const AdminLayoutRoutes: Routes = [
         component: SolicitudComponent
     }, {
         path: 'area-supervisora',
-        component: ConformacionComponent
+        component: AreaSupervisoraComponent
     }, {
         path: 'area-solucionadora',
         component: AreaSolucionadoraComponent

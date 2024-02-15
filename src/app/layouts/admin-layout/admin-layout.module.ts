@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'; import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
@@ -7,7 +7,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { PrincipalComponent } from '../../pages/principal/principal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BuscadorComponent } from 'src/app/pages/generico/buscador/buscador.component';
-import { NgxUiLoaderModule,  NgxUiLoaderConfig } from "ngx-ui-loader";
+import { NgxUiLoaderModule, NgxUiLoaderConfig } from "ngx-ui-loader";
 import { PerfilComponent } from 'src/app/pages/generico/perfil/perfil.component';
 import { ConfigurarComponent } from 'src/app/pages/configurar/configurar.component';
 import { ReportesComponent } from 'src/app/pages/reportes/reportes.component';
@@ -29,9 +29,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule} from '@angular/material/core';
-import {MatRippleModule} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
 
 
 
@@ -50,8 +50,12 @@ import { WzconfigComponent } from 'src/app/pages/principal/administracion/produc
 import { ExpedientesComponent } from 'src/app/pages/principal/expedientes/expedientes.component';
 import { ConformacionComponent } from 'src/app/pages/principal/conformacion/conformacion.component';
 
+
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { WzclasificacionComponent } from 'src/app/pages/principal/expedientes/wzclasificacion/wzclasificacion.component';
+import { AreaSupervisoraComponent } from 'src/app/pages/principal/area-supervisora/area-supervisora.component';
+import { AreaSolucionadoraComponent } from 'src/app/pages/principal/area-solucionadora/area-solucionadora.component';
+import { SolicitudComponent } from 'src/app/pages/principal/solicitud/solicitud.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "bgsColor": "#79c680",
@@ -129,7 +133,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     CambiarclaveComponent,
     HechiceroComponent,
     TablaComponent,
-		AdministracionComponent,
+    AdministracionComponent,
     DocumentosComponent,
     ProductosComponent,
     MaestroComponent,
@@ -137,9 +141,12 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     WzconfigComponent,
     ExpedientesComponent,
     ConformacionComponent,
+    SolicitudComponent,
+    AreaSupervisoraComponent,
+    AreaSolucionadoraComponent,
     WzclasificacionComponent
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
 

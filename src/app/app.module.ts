@@ -23,7 +23,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { NgxUiLoaderModule,  NgxUiLoaderConfig } from "ngx-ui-loader";
+import { NgxUiLoaderModule, NgxUiLoaderConfig } from "ngx-ui-loader";
 
 import { MatCommonModule } from '@angular/material/core';
 import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
@@ -39,9 +39,6 @@ import { MatInputModule } from '@angular/material/input';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
-import { SolicitudComponent } from './pages/principal/solicitud/solicitud.component';
-import { AreaSupervisoraComponent } from './pages/principal/area-supervisora/area-supervisora.component';
-import { AreaSolucionadoraComponent } from './pages/principal/area-solucionadora/area-solucionadora.component';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -110,7 +107,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
       newestOnTop: false,
       progressBar: true,
       positionClass: "toast-top-right",
-      preventDuplicates: false    }),
+      preventDuplicates: false
+    }),
     AngularFileUploaderModule
 
   ],
@@ -118,13 +116,10 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    SolicitudComponent,
-    AreaSupervisoraComponent,
-    AreaSolucionadoraComponent,
   ],
-  providers:  [
+  providers: [
     {
-      provide: [ LocationStrategy, AuthGuardGuard,  JsonPipe],
+      provide: [LocationStrategy, AuthGuardGuard, JsonPipe],
       useClass: HashLocationStrategy
     },
     {
@@ -132,9 +127,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
       useClass: AuthInterceptorService,
       multi: true
     },
-    { 
-      provide: MatPaginatorIntl, 
-      useValue: CustomPaginator() 
+    {
+      provide: MatPaginatorIntl,
+      useValue: CustomPaginator()
     }
   ],
   bootstrap: [AppComponent]
